@@ -3,6 +3,7 @@ dotenv.config({});
 import express from "express";
 import cors from "cors";
 import recommendRoutes from "./routes/recommend.routes.js";
+import uploadRoutes from "./routes/upload.routes.js";
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors({
 app.use(express.json()); 
 
 
+app.use("/api/upload", uploadRoutes);
 app.use("/api/recommend", recommendRoutes);
 
 app.listen(5000, () => {
